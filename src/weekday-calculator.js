@@ -1,4 +1,4 @@
-export class Fart {
+export class Date2 {
   constructor(year, month, day) {
     this.year = year;
     this.month = month;
@@ -6,10 +6,17 @@ export class Fart {
   }
 
   isLeapYear() {
-    if ((this.year % 4 === 0) && (this.year % 100 !== 0) || (this.year % 400 === 0)) {
+    let parseYear = parseInt(this.year);
+    if ((parseYear % 4 === 0) && (parseYear % 100 !== 0) || (parseYear % 400 === 0)) {
       return true;
       } else {
       return false;
     }
   }
+
+  findDay() {
+  let twoDigits = this.year.substr(this.year.length-2);
+  return twoDigits;
+}
+
 }
