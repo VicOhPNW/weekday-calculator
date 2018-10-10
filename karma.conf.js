@@ -3,7 +3,7 @@ const webpackConfig = require('./webpack.config.js');
 module.exports = function(config) {
   config.set({
     basePath: '',
-    frameworks: ['jquery-3.2.1', 'jasmine'],
+    frameworks: ['jasmine'],
     files: [
       'src/*.js',
       'spec/*spec.js'
@@ -20,6 +20,7 @@ module.exports = function(config) {
       'karma-webpack',
       'karma-jasmine',
       'karma-chrome-launcher',
+      'karma-sourcemap-loader',
       'karma-jasmine-html-reporter'
     ],
     reporters: ['progress', 'kjhtml'],
