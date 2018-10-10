@@ -15,8 +15,10 @@ export class Date2 {
   }
 
   findDay() {
-  let twoDigits = this.year.substr(this.year.length-2);
-  return twoDigits;
+  let twoDigits = this.year.slice(-2);
+  console.log(parseInt(twoDigits));
+  let parseTwoDigits = parseInt(twoDigits); //just added variable, but same result in test
+  return parseTwoDigits;
 }
 
 }
