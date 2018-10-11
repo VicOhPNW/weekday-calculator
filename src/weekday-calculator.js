@@ -53,7 +53,7 @@ export class Date2 {
     }
 
     const Days = {
-      0: "Sorry! Womp womp."
+      0: "Sorry! Womp womp.",
       1: "Sunday",
       2: "Monday",
       3: "Tuesday",
