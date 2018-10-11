@@ -53,7 +53,7 @@ export class Date2 {
     }
 
     const Days = {
-      0: "Sorry! Womp womp.",
+      0: "Saturday",
       1: "Sunday",
       2: "Monday",
       3: "Tuesday",
@@ -67,11 +67,15 @@ export class Date2 {
     const parseDay = parseInt(this.day);
 
     let lastTwoDigits = this.year.slice(-2);
+    console.log(lastTwoDigits);
     let parseLastTwoDigits = parseInt(lastTwoDigits);
+    console.log(parseLastTwoDigits);
     let twoDigitsDivide = Math.floor(parseLastTwoDigits / 4);
-    // console.log(twoDigitsDivide);
+    console.log(twoDigitsDivide);
     let twoDigitsPlusDay = twoDigitsDivide + parseDay;
+    console.log(twoDigitsPlusDay);
     let plusMonthsKeyValue = twoDigitsPlusDay + Months[this.month];
+    console.log(plusMonthsKeyValue);
     let afterLeapYearCheck = 0;
     if(this.isLeapYear() === true){
       if(parseMonth === 1 || parseMonth === 2){
@@ -80,14 +84,19 @@ export class Date2 {
     } else {
       afterLeapYearCheck = plusMonthsKeyValue;
     }
+    console.log(afterLeapYearCheck);
 
     let firstTwoDigits = this.year.slice(0,2);
+    console.log(firstTwoDigits);
 
     let GregorianValueAdded = afterLeapYearCheck + Centuries[firstTwoDigits];
+    console.log(GregorianValueAdded);
 
     let LastTwoGregorianAdded = parseLastTwoDigits + GregorianValueAdded;
+    console.log(LastTwoGregorianAdded);
 
     let ModuloBy7 = LastTwoGregorianAdded % 7;
+    console.log(ModuloBy7);
 
     let Day = Days[ModuloBy7];
 
