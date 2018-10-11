@@ -9,10 +9,16 @@ describe('isLeapYear', function() {
 
 describe('findDay', function() {
     it('shoud return last 2 digits', function() {
-        var testYear = new Date2("2000", "1", "10");
-        expect(testYear.findDay()).toEqual(10);
+        // Checking leap year
+        var testYear = new Date2("2601", "10", "10");
+        expect(testYear.findDay()).toEqual("Wednesday");
 
-        var testYear2 = new Date2("2018", "10", "10");
-        expect(testYear2.findDay()).toEqual(15);
+        // Standard year
+        var testYear2 = new Date2("2018", "10", "11");
+        expect(testYear2.findDay()).toEqual("Wednesday");
+
+        // Future outside range
+        var testYear3 = new Date2("3401", "10", "10");
+        expect(testYear3.findDay()).toEqual("Saturday");
     });
 });
