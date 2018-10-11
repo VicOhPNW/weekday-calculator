@@ -30,24 +30,35 @@ export class Date2 {
       12:6
     };
 
+    const Centuries = {
+      17: 4,
+      18: 2,
+      19: 0,
+      20: 6
+    }
+
     // const parseYear = parseInt(this.year);
     const parseMonth = parseInt(this.month);
     // const parseDay = parseInt(this.day);
 
-    let twoDigits = this.year.slice(-2);
-    let parseTwoDigits = parseInt(twoDigits); //double 00s = 0. Should be fine...
-    let twoDigitsDivide = Math.floor(parseTwoDigits / 4);
+    let lastTwoDigits = this.year.slice(-2);
+    let parseLastTwoDigits = parseInt(lastTwoDigits); //double 00s = 0. Should be fine...
+    let twoDigitsDivide = Math.floor(parseLastTwoDigits / 4);
     let twoDigitsPlusDay = twoDigitsDivide + parseInt(this.day);
     let plusMonthsKeyValue = twoDigitsPlusDay + Months[this.month];
-
+    let afterLeapYearCheck = 0;
     if(this.isLeapYear() === true){
       if(parseMonth === 1 || parseMonth === 2){
-        return plusMonthsKeyValue - 1;
+        afterLeapYearCheck = plusMonthsKeyValue - 1;
       }
     } else {
-      return plusMonthsKeyValue;
+      afterLeapYearCheck = plusMonthsKeyValue;
     }
 
+    let firstTwoDigits = this.year.slice(0,2);
+    // let parseFirstTwoDigits =
+
+    return afterLeapYearCheck;
     // console.log(plusMonthsKeyValue);
     // return plusMonthsKeyValue;
 
